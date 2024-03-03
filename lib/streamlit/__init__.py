@@ -67,6 +67,10 @@ from streamlit.version import STREAMLIT_VERSION_STRING as _STREAMLIT_VERSION_STR
 __version__ = _STREAMLIT_VERSION_STRING
 
 from streamlit.delta_generator import DeltaGenerator as _DeltaGenerator
+from streamlit.elements.dialog_decorator import (
+    # rename so that it is available as st.dialog
+    dialog_decorator as dialog,
+)
 from streamlit.proto.RootContainer_pb2 import RootContainer as _RootContainer
 from streamlit.runtime.caching import (
     cache_resource as _cache_resource,
@@ -129,7 +133,6 @@ _bottom = _DeltaGenerator(root_container=_RootContainer.BOTTOM, parent=_main)
 secrets = _secrets_singleton
 
 # DeltaGenerator methods:
-
 altair_chart = _main.altair_chart
 area_chart = _main.area_chart
 audio = _main.audio
@@ -149,7 +152,6 @@ container = _main.container
 dataframe = _main.dataframe
 data_editor = _main.data_editor
 date_input = _main.date_input
-dialog = _main.dialog
 divider = _main.divider
 download_button = _main.download_button
 expander = _main.expander
